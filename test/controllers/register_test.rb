@@ -31,8 +31,8 @@ class RegisterTest < ControllerTest
 
   def test_rejects_request_that_already_exists_in_db
     post '/sources', { identifier: "jumpstartlab", rootUrl: "http://jumpstartlab.com" }
-
     post '/sources', { identifier: "jumpstartlab", rootUrl: "http://jumpstartlab.com" }
+
     assert_equal 403, last_response.status
     assert_equal "Identifier already exists", last_response.body
   end
